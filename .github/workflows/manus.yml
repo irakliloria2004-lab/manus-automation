@@ -2,7 +2,8 @@ name: Run Manus
 
 on:
   schedule:
-    - cron: '0 9 1,15 * *'
+    - cron: '0 10 * * 1'  # 12:00 Германия (летом)
+  workflow_dispatch:
 
 jobs:
   run:
@@ -17,10 +18,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Ставим requests
+      - name: Устанавливаем requests
         run: pip install requests
 
       - name: Запускаем скрипт
         env:
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
         run: python run_manus.py
+
