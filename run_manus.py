@@ -1,6 +1,17 @@
 import requests
 import os
+import datetime
 
+# --- ПРОВЕРКА: запуск только раз в 2 недели ---
+week_number = datetime.datetime.utcnow().isocalendar()[1]
+
+if week_number % 2 != 0:
+    print("Пропускаем эту неделю")
+    exit()
+
+print("Запускаем Manus")
+
+# --- ТВОЙ API ---
 MANUS_API_KEY = os.environ.get("MANUS_API_KEY")
 
 PROMPT = """
