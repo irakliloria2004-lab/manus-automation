@@ -2,7 +2,7 @@ name: Run Manus
 
 on:
   schedule:
-    - cron: '0 10 * * 1'  # 12:00 Германия (летом)
+    - cron: '0 9 * * 1'  
   workflow_dispatch:
 
 jobs:
